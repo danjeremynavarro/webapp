@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  djangoapp:
+    build:
+      context: ./djangoapp
+    ports:
+      - "8000:8000"
+  reactapp:
+    build:
+      context: ./reactapp
+    command: "npm run build"
+    volumes: 
+      - "./reactapp:/usr/src/app"
+      - "/usr/src/app/node_modules"
