@@ -1,10 +1,5 @@
 version: "3.9"
 services:
-  djangoapp:
-    build:
-      context: ./djangoapp
-    ports:
-      - "8000:8000"
   reactapp:
     build:
       context: ./reactapp
@@ -12,3 +7,13 @@ services:
     volumes: 
       - "./reactapp:/usr/src/app"
       - "/usr/src/app/node_modules"
+  database:
+    image: mariadb
+    environment: 
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
