@@ -19,6 +19,10 @@ export default class App extends React.Component{
     this.themeToggle = this.themeToggle.bind(this);
   }
 
+  pathProcessor(){
+
+  }
+
   themeToggle(event){
     const prevTheme = this.state.theme;
     event.target.classList.add("disabled");
@@ -48,15 +52,17 @@ export default class App extends React.Component{
                 <li>
                 <button className="nav-item btn btn-sm btn-warning mr-0 disabled" id="light-mode" onClick={this.themeToggle}>Light</button>
                 <button className="nav-item btn btn-sm btn-primary mr-0" id="dark-mode" onClick={this.themeToggle}>Dark</button>
+                
                 </li>
-
               </ul>     
             </nav>
             <div className="main">
             <Switch>
+              {console.log(this.props)}
               <Route path="/">
                 <About />
               </Route>
+
             </Switch>
             </div>
           </div>
